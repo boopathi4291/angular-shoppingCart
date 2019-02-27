@@ -1,0 +1,38 @@
+input.search {
+    width: 30%;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url(https://cms-assets.tutsplus.com/uploads/users/523/posts/27345/preview_image/search-icon-large.png);
+    background-size: 40px 40px;
+    background-position: 5px 5px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+  }
+
+  input.search:focus{
+      width:70%;
+  }
+
+ form input.ng-pristine.ng-valid{
+      background-color:lightblue;
+  }
+
+ form input.ng-pristine.ng-invalid{
+    background-color:lightgoldenrodyellow;
+}
+
+form input.ng-dirty.ng-valid{
+    background-color:rgb(169, 235, 169);
+}
+
+form input.ng-dirty.ng-invalid{
+   border: 2px solid red;
+}
+
+
+

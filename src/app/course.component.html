@@ -1,0 +1,28 @@
+<!-- <div  [ngClass]="['coursestyle','highlight']"> -->
+<div  [ngClass]="{'coursestyle':true,'highlight':isHighlighted}">
+      Add to Cart :  <input type="checkbox" 
+      [(ngModel)]="isHighlighted" /><br/>
+        <h1> {{coursedetails.name | uppercase | lowercase}}  </h1>
+      
+        <img [src]="coursedetails.imageUrl" height="200px" width="200px" /><br/>
+            <b> Duration : {{coursedetails.duration | duration:'hours':'minutes'}} </b><br/>
+           Is Free ? : <input type="checkbox" [(ngModel)]="isFree" /><br/>
+            <p  *ngIf="!isFree;else elseTemplate">
+                    <b> Price : {{coursedetails.price | currency:'INR'}} </b><br/>                 
+            </p>            
+            <ng-template #elseTemplate>
+                    <b style="color:green"> This course is free !</b>
+            </ng-template>
+            <br/>      
+                    <!-- <b [hidden]="isFree"> Price : {{coursedetails.price}} </b><br/>
+            -->
+            <b> Trainer : {{coursedetails.trainer}} </b><br/>
+            <b> Rating : {{coursedetails.rating | number:'1.1-2'}} </b><br/>
+
+           
+            <button class="btn btn-primary" (click)="IncrementLikes()">
+                {{coursedetails.likes}}
+                <span class="glyphicon glyphicon-thumbs-up"></span>
+            </button>
+</div>
+

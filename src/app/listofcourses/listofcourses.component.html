@@ -1,0 +1,69 @@
+
+
+<!-- <img src="{{ImageUrl}}" height="200px" width="200px" />
+<img [src]="ImageUrl" height="200px" width="200px" /> -->
+
+<div class="container">
+    <div class="jumbotron">
+     <h1> List of courses </h1>
+  
+     <!-- Company : <input type="text" [(ngModel)]="companyName" />
+     <ul  [ngSwitch]="companyName">
+       <li  *ngSwitchCase="'Accenture'">Accenture</li>
+       <li  *ngSwitchCase="'Persitent'">Persitent</li>
+       <li  *ngSwitchCase="'Intel'">Intel</li>
+       <li  *ngSwitchCase="'Microsoft'">Microsoft</li>
+       <li *ngSwitchDefault> No matching company ! </li>
+  
+     </ul> -->
+        
+    </div>
+<div style="width: 50%">
+    <h1> New Course : </h1>
+<form (ngSubmit)="AddNewCourse(f)" ngNativeValidate  #f="ngForm">
+  <span style="color:red" [hidden]="!(coursename.invalid && coursename.dirty)"> Coursename is required !</span><br>
+  
+    Name : <input type="text" required class="form-control" #coursename="ngModel" 
+    name="cname" [(ngModel)]="newCourse.name" />
+  <span style="color:red" [hidden]="!(courseprice.invalid && courseprice.dirty)"> Courseprice is required !</span><br>
+   
+    Price : <input type="text" required class="form-control" #courseprice="ngModel" name="cprice"  [(ngModel)]="newCourse.price" />
+    Trainer : <input type="text" class="form-control" name="ctrainer"  [(ngModel)]="newCourse.trainer" />
+    Rating : <input type="text" class="form-control" name="crating"  [(ngModel)]="newCourse.rating" />
+    Duration : <input type="text" class="form-control" name="cduration"  [(ngModel)]="newCourse.duration" />
+    ImageUrl : <input type="text" class="form-control" name="cimage"  [(ngModel)]="newCourse.imageUrl" />
+    <button class="btn btn-success" [disabled]="f.invalid">
+    Add Course  <span class="glyphicon glyphicon-plus-sign"></span>
+    </button>
+  </form>
+</div>
+  
+
+  
+<input type="text" placeholder="Search..."  
+[(ngModel)]="courseToBeSearched" class="search" />
+  
+    <div class="row">
+        <div [ngSwitch]="courseToBeSearched">
+                <div *ngFor="let c of courses">
+                        <div class="col-md-4" 
+                        *ngSwitchCase="c.name">
+                            <course [coursedetails]="c"  
+                            ></course>
+                        </div>
+                    </div>
+                    <div  *ngSwitchDefault> 
+                                    <div *ngFor="let c of courses">
+                                            <div class="col-md-4">
+                                            <course [coursedetails]="c" ></course>
+                                        </div>
+                            </div>                         
+                    </div>
+        </div>
+           
+    </div> 
+    
+  </div>
+  
+  
+  
